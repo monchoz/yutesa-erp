@@ -1,0 +1,48 @@
+{
+  "orders": [
+    {
+      "customer": "Jose Ramon",
+      "date": "16/02/2018",
+      "products": [
+        {
+          "title": "Mochila",
+          "quantity": 1,
+          "price": 2.5
+        },
+         {
+          "title": "Mochila",
+          "quantity": 1,
+          "price": 2.5
+        },
+         {
+          "title": "Mochila",
+          "quantity": 1,
+          "price": 2.5
+        }
+      ]
+    },
+    {
+      "customer": "Monica Gomez",
+      "date": "15/02/2018",
+      "products": [
+        {
+          "title": "Bolso",
+          "quantity": 1,
+          "price": 3.5
+        }
+      ]
+    }
+  ],
+  "products": {
+        "bolso": {
+            "title": "Bolso",
+            "manufactured": "16/02/2018",
+            "stock": 5
+        },
+        "mochila": {
+            "title": "Mochila",
+            "manufactured": "15/02/2018",
+            "stock": 5
+        }
+    }
+}

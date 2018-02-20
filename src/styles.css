@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+   padding-top: 80px; 
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+}
+
+.ngx-contextmenu li {
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+
+.ngx-contextmenu li:first-child {
+  margin-top: 10px;
+}
+
+.ngx-contextmenu a {
+  color: #6c757d;
+}
+
+.ngx-contextmenu a:hover {
+  filter: brightness(120%);
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.fa {
+    margin-right: 5px;
+}

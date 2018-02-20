@@ -1,0 +1,8 @@
+.product-settings {
+    color: #6c757d;
+}
+
+.product-settings:hover {
+    color: #55B1F7;
+    cursor: pointer;
+}

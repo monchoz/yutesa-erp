@@ -1,0 +1,64 @@
+<h2>Productos en inventario</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Fecha de elaboración</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products | async">
+      <th scope="row">{{product.title}}</th>
+      <td>{{product.stock}}</td>
+      <td>{{product.manufactured}}</td>
+      <td><i class='fa fa-ellipsis-h product-settings' (click)="onContextMenu($event, product)"></i></td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #editProductModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Editar Producto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <label for="title" class="col-sm-3 col-form-label">Nombre:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="title" placeholder="Nombre" [(ngModel)]="product.title" name="title" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="stock" class="col-sm-3 col-form-label">Cantidad:</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="stock" placeholder="Cantidad" [(ngModel)]="product.stock" name="stock" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="manufactured" class="col-sm-3 col-form-label">Fecha de elaboración:</label>
+        <div class="col-sm-9">
+          <input type="date" class="form-control" id="manufactured" placeholder="Fecha de elaboración" [(ngModel)]="product.manufactured" name="manufactured" required>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="updateProduct()">Guardar</button>
+  </div>
+</ng-template>
+
+<context-menu>
+  <ng-template contextMenuItem let-item (execute)="showModal(editProductModal, $event.item)">
+    <i class='fa fa-pencil-alt'></i> Editar Producto
+  </ng-template>
+  <ng-template contextMenuItem let-item (execute)="removeProduct($event.item.key, $event.item.title)">
+    <i class='fa fa-trash-alt'></i> Remove
+  </ng-template>
+</context-menu>
