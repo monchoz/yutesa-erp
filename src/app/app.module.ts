@@ -19,11 +19,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { OrdersListComponent } from './orders-list/orders-list.component';
 import { ProductNewComponent } from './product-new/product-new.component';
+import { OrderNewComponent } from './order-new/order-new.component';
 
 const appRoutes: Routes = [
-  { path: "productos", component: ProductsListComponent},
-  { path: "ordenes", component: OrdersListComponent},
+  { path: "productos", component: ProductsListComponent },
   { path: "productos/nuevo", component: ProductNewComponent },
+  { path: "ordenes", component: OrdersListComponent },
+  { path: "ordenes/nuevo", component: OrderNewComponent },
   { path: '',
     redirectTo: '/productos',
     pathMatch: 'full'
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     AppNavbarComponent,
     ProductsListComponent,
     OrdersListComponent,
-    ProductNewComponent
+    ProductNewComponent,
+    OrderNewComponent
   ],
   imports: [
     RouterModule.forRoot(
