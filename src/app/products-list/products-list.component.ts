@@ -13,7 +13,8 @@ import { Product } from '../models/product';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
-  product = new Product("", "", 0, "");
+  product = new Product("", 0, "");
+  productKey = "";
   editProductModal: any;
   productsRef: AngularFireList<any>;
   products: Observable<any[]>;
@@ -45,8 +46,9 @@ export class ProductsListComponent implements OnInit {
     $event.stopPropagation();
   }
   
-  showModal(editProductModal, item) {
-    this.product = new Product(item.key, item.title, item.stock, item.manufactured);
+  showModal(editProductModal, item, key) {
+    this.product = new Product(item.title, item.stock, item.manufactured);
+    this.productKey = key;
     this.editProductModal = this._modalService.open(editProductModal);
   }
   
@@ -58,7 +60,7 @@ export class ProductsListComponent implements OnInit {
   
   updateProduct(editProductModal) {
     this.productsRef.update(
-      this.product.key,
+      this.productKey,
       {
         title: this.product.title,
         stock: this.product.stock,

@@ -11,7 +11,7 @@ import { Product } from '../models/product';
   styleUrls: ['./product-new.component.css']
 })
 export class ProductNewComponent implements OnInit {
-  product = new Product("", "", 0, ""); 
+  product = new Product("", 0, ""); 
   products: any = [];
 
   constructor(private db: AngularFireDatabase, private _notificationService: NotificationsService) { }
@@ -23,7 +23,7 @@ export class ProductNewComponent implements OnInit {
   onSubmit() {
     this.products.push(this.product).then((item) => {
       this._notificationService.success('Producto agregado', this.product.title)
-      this.product = new Product("", "", 0, "");
+      this.product = new Product("", 0, "");
     })
   }
 

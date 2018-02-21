@@ -55,7 +55,7 @@
 </ng-template>
 
 <context-menu>
-  <ng-template contextMenuItem let-item (execute)="showModal(editProductModal, $event.item)">
+  <ng-template contextMenuItem let-item (execute)="showModal(editProductModal, $event.item, $event.item.key)">
     <i class='fa fa-pencil-alt'></i> Editar Producto
   </ng-template>
   <ng-template contextMenuItem let-item (execute)="removeProduct($event.item.key, $event.item.title)">
