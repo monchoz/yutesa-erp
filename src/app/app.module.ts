@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { ContextMenuModule } from 'ngx-contextmenu';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppComponent } from './app.component';
 
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     FormsModule,
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule,
-    ContextMenuModule.forRoot()
+    ContextMenuModule.forRoot(),
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
