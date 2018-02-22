@@ -15,7 +15,7 @@
             <tr *ngFor="let product of order.products">
               <th scope="row">{{product.title}}</th>
               <td>{{product.quantity}}</td>
-              <td>{{product.price}}</td>
+              <td>${{product.price}}</td>
             </tr>
           </tbody>
         </table>
